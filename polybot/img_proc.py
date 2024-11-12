@@ -51,8 +51,12 @@ class Img:
             self.data[i] = res
 
     def rotate(self):
-        # TODO remove the `raise` below, and write your implementation
-        raise NotImplementedError()
+        if not self.data:
+            raise RuntimeError('התמונה לא נטענה.')
+        
+        rotated_image = list(zip(*self.data[::-1]))
+        self.data = [list(row) for row in rotated_image]
+        
 
     def salt_n_pepper(self):
         # TODO remove the `raise` below, and write your implementation
